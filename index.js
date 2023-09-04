@@ -7,7 +7,6 @@ const fileUpload = require ("express-fileupload");
 const cloudinary = require("cloudinary").v2;
 const authRouter =require ("./routes/authRouter");
 const storyRouter = require ("./routes/storyRouter");
-const allRouter = require ("./routes/allRouter");
 const auth = require ("./middleware/authetication");
 const cors = require ("cors");
 // const rateLimit = require ('express-rate-limit');
@@ -33,7 +32,7 @@ app.use(cors())
 //routes
 app.use("/api/v1", authRouter);
 app.use("/api/v1/story", auth, storyRouter);
-app.use("/api/v1/all", auth, allRouter)
+
 
 //db connecti
 const startServer = async ()=>{

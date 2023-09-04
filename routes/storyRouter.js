@@ -1,20 +1,16 @@
-const router = require ("express").Router()
-const {
-getAllUserStories,
-getAUserStory,
-createStory,
-editStory,
-deleteStory 
-} = require ("../controller/storyController")
+const router = require("express").Router()
+
+const {getAllStories, getAStory, getAUserStory,
+    getAllUserStories, createStory, editStory, deleteStory} = require("../controller/storyController");
+
+
+   
+
+
+    // route for uuser
+    router.route("/").get(getAllUserStories).get(getAllStories).post(createStory);
+    router.route("/:storyId").get(getAUserStory).get(getAStory).patch(editStory).delete(deleteStory);
 
 
 
-//routes for user
-router.route("/").get(getAllUserStories).post(createStory)
-router
-.route("/:storyId")
-.get(getAUserStory)
-.patch(editStory)
-.delete(deleteStory)
-
-module.exports = router;
+module.exports = router

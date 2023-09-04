@@ -27,8 +27,8 @@ try {
     if (!user){
         throw Error ('incorrect email')
     }
-    const authenticated = await user.comparePassword(password)
-    if (!authenticated){
+    const comparePassword = await user.comparePassword(password)
+    if (!comparePassword){
         throw Error ("bad auth")
     }
     //generate token
@@ -45,7 +45,6 @@ try {
 const foundUser = async (req, res) =>{
     const {userId} = req.user;
     const user = await User.findById({_id: userId});
-    console.log(user);
     res.status(200).json({success: true, username: user.username});
   };
 

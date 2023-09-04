@@ -7,8 +7,8 @@ email: '',
 password: '',
 };
 if (err.code === 11000){
-   ( errors.username = "Email or username is in use")
-   (errors.email = "Email or username is in use")
+    errors.username = "Email or username is in use"
+   errors.email = "Email or username is in use"
    return errors;
 }
 if (err.message === 'incorrect email'){

@@ -1,3 +1,4 @@
+
 const router = require ("express").Router();
 const {registerUser, loginUser, foundUser} = require ("../controller/auth")
 

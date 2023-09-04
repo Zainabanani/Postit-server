@@ -36,6 +36,7 @@ userSchema.pre('save', async function (next){
     next();
 });
 
+
 //compare password
 userSchema.methods.comparePassword = async function (userPassword){
     const isCorrect = await bcrypt.compare(userPassword, this.password)
@@ -48,3 +49,4 @@ return jwt.sign({userId: this._id, email: this.email}, process.env.JWT_SECRET, {
 };
 
 module.exports = mongoose.model("User", userSchema)
+
